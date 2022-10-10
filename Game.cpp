@@ -50,11 +50,11 @@ bool Game::Start()
 			cout << " Player Texture - success" << endl;
 
 			//player animations
-			playerAnims.attack = new Animation(playerTexture, 109, 40.0f, 0, 12);
-			playerAnims.idle = new Animation(playerTexture, 109, 40.0f, 65, 68);
-			playerAnims.run = new Animation(playerTexture, 109, 40.0f, 84, 89);
-			playerAnims.die = new Animation(playerTexture, 109, 40.0f, 53, 59);
-			playerAnims.jump = new Animation(playerTexture, 109, 40.0f, 76, 79);
+			playerAnims.attack = new Animation(playerTexture, 109, 0.1f, 0, 12);
+			playerAnims.idle = new Animation(playerTexture, 109, 0.1f, 65, 68);
+			playerAnims.run = new Animation(playerTexture, 109, 0.1f, 84, 89);
+			playerAnims.die = new Animation(playerTexture, 109, 0.1f, 53, 59);
+			playerAnims.jump = new Animation(playerTexture, 109, 0.1f, 76, 79);
 		}
 		else {
 			cout << "Player Texture - failed" << endl;
@@ -86,7 +86,7 @@ void Game::Update()
 	float deltaTime = tick / 1000.0f;
 
 	//Refresh the last update time
-	lastUpdatedTime + SDL_GetTicks();
+	lastUpdatedTime = SDL_GetTicks();
 
 	//add anything that needs deltaTime
 	playerAnims.attack->update(deltaTime);
